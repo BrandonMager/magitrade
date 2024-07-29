@@ -8,12 +8,27 @@ User:
 Id_: ObjectID()
 user_id: Int[64]
 buyingPower: Float[64]
+balanceHistory: Array[HistoryJSON()]
+
+#This is an object type
+HistoryJSON:
+{timestamp: string, balance: Float[64]}
 
 Stock:
 Id_: ObjectID()
 ticker: string
 polygonTicker: string
-oneDayData: Array[Object]
+oneDayData: Array[DataJSON()]
+
+#This is an object type
+DataJSON:
+{ 
+    open: Float[64],
+    close: Float[64],
+    high: Float[64],
+    low: Float[64],
+    timestamp: string
+}
 
 Purchase:
 Id_: ObjectID
