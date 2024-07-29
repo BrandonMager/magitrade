@@ -1,6 +1,8 @@
 import { useSession } from "@/contexts/authctx"
-import { Redirect, Stack } from "expo-router"
-import { Text } from "react-native"
+import Sidebar from "@/contexts/Sidebar"
+import { Redirect, Slot, Stack } from "expo-router"
+import { Text, View } from "react-native"
+import tw from "twrnc"
 
 export default function AppLayout(){
     const { session, isLoading } = useSession()
@@ -8,9 +10,12 @@ export default function AppLayout(){
         return <Text>Loading...</Text>
     }
 
-    if(!session){
+    if(session){
         return <Redirect href="/sign-in" />
     }
 
-    return <Stack />
+    return <View style={tw`flex flex-row h-screen`}>
+            <Sidebar/>
+            <Slot />
+        </View>
 }
