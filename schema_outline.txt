@@ -1,0 +1,33 @@
+Account:
+id_: ObjectID()
+account_id: Int[64]
+user_id: Int[64]
+password: string
+
+User:
+Id_: ObjectID()
+user_id: Int[64]
+buyingPower: Float[64]
+
+Stock:
+Id_: ObjectID()
+ticker: string
+polygonTicker: string
+oneDayData: Array[Object]
+
+Purchase:
+Id_: ObjectID
+purchase_id: Int[64]
+ticker: string
+purchase: SharesPurchase | OptionsPurchase
+
+SharesPurchase:
+id_: ObjectID
+shares: Float[64]
+price: Float[64]
+	
+OptionsPurchase:
+id_: ObjectID
+contract: Contract
+num_of_contracts: Int[64]
+
