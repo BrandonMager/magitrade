@@ -17,5 +17,6 @@ export default function AppLayout(){
     return <View style={tw`flex flex-row h-screen`}>
             <Sidebar/>
             <Slot />
+           
         </View>
 }
