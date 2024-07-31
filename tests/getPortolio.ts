@@ -1,4 +1,4 @@
-const exampleUser = {
+export const exampleUser = {
     name: "Brandon",
     balanceHistory: [{
         balance: 100.00,
@@ -49,7 +49,7 @@ const exampleUser = {
             },
         },
         {
-            balance: 112.09,
+            balance: 131.29,
             timestamp: {
                 day: 17,
                 month: 3,
@@ -58,7 +58,7 @@ const exampleUser = {
             },
         },
         {
-            balance: 112.09,
+            balance: 100.09,
             timestamp: {
                 day: 18,
                 month: 3,
