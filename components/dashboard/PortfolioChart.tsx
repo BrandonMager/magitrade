@@ -20,7 +20,7 @@ export default function PortfolioChart({ userData }: any){
         }]
     }
 
-    return <View style={tw`h-[250px]`}>
+    return <View style={tw`h-[250px] bg-slate-100 my-[12px] p-[12px]`}>
         <Line data = {formattedData} 
             options={{
                 scales: {
