@@ -24,7 +24,7 @@ export default function PortfolioComponent(){
             fontSize: 28
         }}>${livePrice.toFixed(2)}</Text>
 
-        <PortfolioChart userData={userData} />
+        <PortfolioChart userData={userData} view = {view} />
         <PortfolioBar view = {view} setView={setView}/>
 
     </View>

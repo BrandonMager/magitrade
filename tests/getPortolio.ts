@@ -1,6 +1,28 @@
+
 export const exampleUser = {
     name: "Brandon",
-    balanceHistory: [{
+    dailyBalanceHistory: [{
+
+        balance: 150.00,
+        timestamp: {
+            unix: 1710768600
+        }, 
+        },
+        {
+            balance: 151.10,
+            timestamp: {
+                unix: 1710770400
+            }, 
+        },
+        {
+            balance: 151.39,
+            timestamp: {
+                unix: 1710770400
+            }, 
+        }
+
+    ],
+    weekBalanceHistory: [{
         balance: 100.00,
         timestamp: {
             day: 12,
@@ -31,7 +53,7 @@ export const exampleUser = {
         },
 
         {
-            balance: 112.09,
+            balance: 120.09,
             timestamp: {
                 day: 15,
                 month: 3,
@@ -40,7 +62,7 @@ export const exampleUser = {
             },
         },
         {
-            balance: 112.09,
+            balance: 122.99,
             timestamp: {
                 day: 16,
                 month: 3,
@@ -58,7 +80,7 @@ export const exampleUser = {
             },
         },
         {
-            balance: 100.09,
+            balance: 128.33,
             timestamp: {
                 day: 18,
                 month: 3,

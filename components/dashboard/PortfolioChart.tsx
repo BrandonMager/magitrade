@@ -1,27 +1,45 @@
-import { formatDataToPrices } from "@/functions/porfolioFunctions"
+import { formatDataToPrices, formatDataToPricesDaily } from "@/functions/porfolioFunctions"
 import { Chart, CategoryScale, LinearScale, PointElement, LineElement} from "chart.js"
+import { useEffect, useState } from "react"
 import { Line } from "react-chartjs-2"
 import { View } from "react-native"
 import tw from "twrnc"
 
 Chart.register(CategoryScale, LinearScale, PointElement, LineElement)
 
-export default function PortfolioChart({ userData }: any){
+export default function PortfolioChart({ userData, view } : any){
+    const [component, setComponent] : any = useState(null)
 
-    const formattedData = {
-        labels: formatDataToPrices(userData),
-        datasets: [{
-            label: "Price",
-            data: formatDataToPrices(userData),
-            fill: false,
-            pointRadius: 2,
-            borderColor: 'rgba(10, 55, 201, 1)',
-            borderWidth: 1
-        }]
-    }
+    useEffect(() => {    
+        var formattedData;    
+        if(view == "1D"){
+            formattedData = {
+                labels: formatDataToPricesDaily(userData),
+                    datasets: [{
+                        label: "Price",
+                        data: formatDataToPricesDaily(userData),
+                        fill: false,
+                        pointRadius: 2,
+                        borderColor: 'rgba(10, 55, 201, 1)',
+                        borderWidth: 1
+                    }]
+            }
 
-    return <View style={tw`h-[250px] bg-slate-100 my-[12px] p-[12px]`}>
-        <Line data = {formattedData} 
+        } else {
+            formattedData = {
+                    labels: formatDataToPrices(userData),
+                    datasets: [{
+                        label: "Price",
+                        data: formatDataToPrices(userData),
+                        fill: false,
+                        pointRadius: 2,
+                        borderColor: 'rgba(10, 55, 201, 1)',
+                        borderWidth: 1
+                    }]
+            }
+        }
+
+        const component = <Line data = {formattedData} 
             options={{
                 scales: {
                     x: {display: false},
@@ -34,6 +52,17 @@ export default function PortfolioChart({ userData }: any){
                 responsive: true
             }}
             />
+
+         
+
+        setComponent(component)
+
+    }, [view])
+
+    
+
+    return component && <View style={tw`h-[250px] bg-slate-100 my-[12px] p-[12px]`}>
+        {component}
     </View>
 
 }
